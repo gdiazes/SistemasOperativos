@@ -1,0 +1,29 @@
+ssh  alumno@192.168.3.175
+sudo apt update -y
+sudo apt install apache2 -y
+sudo apt install php libapache2-mod-php php-mysql -y
+apt install mysql-server -y
+sudo systemctl start apache2
+sudo systemctl enable apache2
+sudo addgroup nobody
+sudo usermod -a -G nobody alumno
+exit
+groups
+sudo chown -R alumno:nobody /var/www
+sudo chmod 2775 /var/www
+
+sudo apt install php libapache2-mod-php php-mbstring php-xmlrpc php-soap php-gd php-xml php-cli php-zip php-bcmath php-tokenizer php-json php-pear
+sudo apt-get update
+find /var/www -type d -exec sudo chmod 2775 {} \;
+find /var/www -type f -exec sudo chmod 0664 {} \;
+cd /var/www
+mkdir conf
+cd conf
+touch dbinfo.inc
+cd /var/www/html
+touch index.php
+scp <parámetro> <ruta de origen> <ruta de destino> 
+scp -r -P 22 /c/users/tdiaz/web.tar alumno@192.168.3.175:/var/www/html/
+ssh  alumno@192.168.3.175      
+cd /var/www/html
+tar xvf web.tar
